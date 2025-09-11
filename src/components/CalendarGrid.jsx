@@ -47,7 +47,7 @@ export default function CalendarGrid({
                     }
                   }}
                   className={[
-                    "rounded-xl border px-2 py-2 text-left h-28 sm:h-32 transition",
+                    "flex flex-col rounded-xl border px-2 py-2 text-left h-28 sm:h-32 transition",
                     inMonth
                       ? "border-zinc-800 bg-zinc-900 hover:bg-zinc-800"
                       : "border-transparent bg-zinc-900/30 text-zinc-600",
