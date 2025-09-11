@@ -6,6 +6,49 @@ export default function MovieCard({
   accent = false,
   handleBackToCalendar,
 }) {
+  const isAndroidChrome = () => {
+    const ua = navigator.userAgent || "";
+    return (
+      /Android/i.test(ua) &&
+      /Chrome\/\d+/i.test(ua) &&
+      !/Edg/i.test(ua) && // not Edge
+      !/OPR|Opera/i.test(ua) && // not Opera
+      !/SamsungBrowser/i.test(ua)
+    ); // not Samsung Internet
+  };
+
+  const toAndroidIntentUrl = (webUrl, pkg = "com.tubitv") => {
+    const u = new URL(webUrl);
+    const scheme = u.protocol.replace(":", ""); // "https"
+    // intent://host/path?query#hash#Intent;scheme=https;package=com.tubitv;S.browser_fallback_url=<encoded>;end
+    return (
+      `intent://${u.host}${u.pathname}${u.search}${u.hash}` +
+      `#Intent;scheme=${scheme};package=${pkg};` +
+      `S.browser_fallback_url=${encodeURIComponent(webUrl)};end`
+    );
+  };
+
+  const openOnTubi = (webUrl) => {
+    if (isAndroidChrome()) {
+      // Try app via intent. If the app isn't installed, Chrome uses the fallback.
+      // Extra safety: timing fallback for edge cases.
+      const intentUrl = toAndroidIntentUrl(webUrl);
+      const start = Date.now();
+      window.location.href = intentUrl;
+      // If the app didn't take over within ~1s, go to web.
+      setTimeout(() => {
+        if (Date.now() - start < 1500) {
+          window.location.href = webUrl;
+        }
+      }, 1000);
+      return;
+    }
+
+    // iOS, desktop, other Android browsers: use https link.
+    // If Tubi has Universal Links on iOS, it will open the app automatically.
+    window.open(webUrl, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <article
       role="dialog"
@@ -41,33 +84,18 @@ export default function MovieCard({
           {movie.synopsis || "Synopsis pending."}
         </p>
         <div className="mt-3 flex flex-wrap gap-2">
-          {movie.tubi ? (
-            <a
-              href={movie.tubi}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center rounded-lg px-3 py-1.5 text-sm text-emerald-300 hover:bg-emerald-800/30"
-            >
-              Watch on Tubi
-            </a>
-          ) : (
-            <a
-              href={`https://tubitv.com/search/${encodeURIComponent(
-                movie.title
-              )}`}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-1.5 text-sm hover:bg-zinc-700"
-            >
-              Search on Tubi
-            </a>
-          )}
           <button
-            onClick={() => navigator.clipboard.writeText(`${movie.title}`)}
-            className="inline-flex items-center rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-1.5 text-sm hover:bg-zinc-700"
-            title="Copy title"
+            onClick={() =>
+              openOnTubi(
+                movie.url ||
+                  `https://tubitv.com/search/${encodeURIComponent(movie.title)}`
+              )
+            }
+            type="button"
+            rel="noreferrer"
+            className="inline-flex items-center rounded-lg px-3 py-1.5 text-sm text-emerald-300 hover:bg-emerald-800/30"
           >
-            Copy title
+            Watch on Tubi
           </button>
         </div>
       </div>

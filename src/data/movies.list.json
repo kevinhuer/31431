@@ -1,128 +1,157 @@
 [
-    {
-        "date": "2025-10-01",
-        "title": "Invasive 2: Getaway"
-    },
-    {
-        "date": "2025-10-02",
-        "title": "Alligator II: The Mutation"
-    },
-    {
-        "date": "2025-10-03",
-        "title": "Puppet Master II"
-    },
-    {
-        "date": "2025-10-04",
-        "title": "10/31: Part II (anthology)"
-    },
-    {
-        "date": "2025-10-05",
-        "title": "The Stalker: Part II"
-    },
-    {
-        "date": "2025-10-06",
-        "title": "Stake Land II"
-    },
-    {
-        "date": "2025-10-07",
-        "title": "Manos Returns"
-    },
-    {
-        "date": "2025-10-08",
-        "title": "Massacre II"
-    },
-    {
-        "date": "2025-10-09",
-        "title": "Grizzly II: Revenge"
-    },
-    {
-        "date": "2025-10-10",
-                "title": "Leprechaun 2"
-
-    },
-    {
-        "date": "2025-10-11",
-        "title": "The Toxic Avenger: Part II"
-    },
-    {
-        "date": "2025-10-12",
-        "title": "Poltergeist II: The Other Side"
-    },
-    {
-        "date": "2025-10-13",
-        "title": "Species II"
-    },
-    {
-        "date": "2025-10-14",
-        "title": "XTRO 2: The Second Encounter"
-    },
-    {
-        "date": "2025-10-15",
-        "title": "Psycho Cop Returns"
-    },
-    {
-        "date": "2025-10-16",
-        "title": "Ghoulies II"
-    },
-    {
-        "date": "2025-10-17",
-        "title": "Brahms: The Boy II"
-    },
-    {
-        "date": "2025-10-18",
-        "title": "Dementia: Part II"
-    },
-    {
-        "date": "2025-10-19",
-        "title": "Butchers Book Two: Raghorn"
-    },
-    {
-        "date": "2025-10-20",
-        "title": "Sleepaway Camp II"
-    },
-    {
-        "date": "2025-10-21",
-        "title": "Day of the Dead 2: Contagium"
-    },
-    {
-        "date": "2025-10-22",
-        "title": "Return to Return to Nuke ‘Em High (Vol. 2)"
-    },
-    {
-        "date": "2025-10-23",
-         "title": "Zoombies 2"
-     
-    },
-    {
-        "date": "2025-10-24",
-        "title": "Insidious Chapter 2"
-    },
-    {
-        "date": "2025-10-25",
-          "title": "Texas Chainsaw Massacre Part 2"
-    },
-    {
-        "date": "2025-10-26",
-        "title": "Grotesque 2"
-    },
-    {
-        "date": "2025-10-27",
-        "title": "The Barn: Part II"
-    },
-    {
-        "date": "2025-10-28",        
-        "title": "The Rage: Carrie 2"
-    },
-    {
-        "date": "2025-10-29",
-        "title": "ChromeSkull: Laid to Rest 2"
-    },
-    {
-        "date": "2025-10-30",
-        "title": "Ouija Shark 2"
-    },
-    {
-        "date": "2025-10-31",
-        "title": "Terrifier 2"
-    }
+  {
+    "date": "2025-10-01",
+    "title": "Invasive 2: Getaway",
+    "url": "https://tubitv.com/movies/100034652/invasive-2-getaway"
+  },
+  {
+    "date": "2025-10-02",
+    "title": "Alligator II: The Mutation",
+    "url": "https://tubitv.com/movies/100014852/alligator-ii-the-mutation"
+  },
+  {
+    "date": "2025-10-03",
+    "title": "Puppet Master II",
+    "url": "https://tubitv.com/movies/466612/puppet-master-ii"
+  },
+  {
+    "date": "2025-10-04",
+    "title": "10/31: Part II (anthology)",
+    "url": "https://tubitv.com/movies/604507/10-31-part-ii"
+  },
+  {
+    "date": "2025-10-05",
+    "title": "The Stalker: Part II",
+    "url": "https://tubitv.com/movies/100008553/the-stalker-part-ii"
+  },
+  {
+    "date": "2025-10-06",
+    "title": "Stake Land II",
+    "url": "https://tubitv.com/movies/583420/stake-land-ii"
+  },
+  {
+    "date": "2025-10-07",
+    "title": "Manos Returns",
+    "url": "https://tubitv.com/movies/654510/manos-returns"
+  },
+  {
+    "date": "2025-10-08",
+    "title": "Massacre II",
+    "url": "https://tubitv.com/movies/465153/slumber-party-massacre-ii"
+  },
+  {
+    "date": "2025-10-09",
+    "title": "Grizzly II: Revenge",
+    "url": "https://tubitv.com/movies/100016369/grizzly-ii-revenge"
+  },
+  {
+    "date": "2025-10-10",
+    "title": "Leprechaun 2",
+    "url": "https://tubitv.com/movies/343312/leprechaun-ii"
+  },
+  {
+    "date": "2025-10-11",
+    "title": "The Toxic Avenger: Part II",
+    "url": "https://tubitv.com/movies/693384/the-toxic-avenger-part-ii"
+  },
+  {
+    "date": "2025-10-12",
+    "title": "Poltergeist II: The Other Side",
+    "url": "https://tubitv.com/movies/312191/poltergeist-ii-the-other-side"
+  },
+  {
+    "date": "2025-10-13",
+    "title": "Species II",
+    "url": "https://tubitv.com/movies/312197/species-ii"
+  },
+  {
+    "date": "2025-10-14",
+    "title": "XTRO 2: The Second Encounter",
+    "url": "https://tubitv.com/movies/100040752/xtro-ii-the-second-encounter"
+  },
+  {
+    "date": "2025-10-15",
+    "title": "Psycho Cop Returns",
+    "url": "https://tubitv.com/movies/100018762/psycho-cop-returns"
+  },
+  {
+    "date": "2025-10-16",
+    "title": "Ghoulies II",
+    "url": "https://tubitv.com/movies/310133/ghoulies-ii"
+  },
+  {
+    "date": "2025-10-17",
+    "title": "Brahms: The Boy II",
+    "url": "https://tubitv.com/movies/100041152/brahms-the-boy-ii"
+  },
+  {
+    "date": "2025-10-18",
+    "title": "Dementia: Part II",
+    "url": "https://tubitv.com/movies/639504/dementia-part-ii"
+  },
+  {
+    "date": "2025-10-19",
+    "title": "Butchers Book Two: Raghorn",
+    "url": "https://tubitv.com/movies/100039197/butchers-book-two-raghorn"
+  },
+  {
+    "date": "2025-10-20",
+    "title": "Sleepaway Camp II",
+    "url": "https://tubitv.com/movies/302252/sleepaway-camp-ii-unhappy-campers"
+  },
+  {
+    "date": "2025-10-21",
+    "title": "Day of the Dead 2: Contagium",
+    "url": "https://tubitv.com/movies/486711/day-of-the-dead-2-contagium"
+  },
+  {
+    "date": "2025-10-22",
+    "title": "Return to Return to Nuke ‘Em High (Vol. 2)",
+    "url": "https://tubitv.com/movies/693370/return-to-return-to-nuke-em-high-vol-2"
+  },
+  {
+    "date": "2025-10-23",
+    "title": "Zoombies 2",
+    "url": "https://tubitv.com/movies/518208/zoombies-2"
+  },
+  {
+    "date": "2025-10-24",
+    "title": "Insidious Chapter 2",
+    "url": "https://tubitv.com/movies/100043687/insidious-chapter-2"
+  },
+  {
+    "date": "2025-10-25",
+    "title": "Texas Chainsaw Massacre Part 2",
+    "url": "https://tubitv.com/movies/466378/the-texas-chainsaw-massacre-2"
+  },
+  {
+    "date": "2025-10-26",
+    "title": "Grotesque 2",
+    "url": "https://tubitv.com/movies/100031508/grotesque-2"
+  },
+  {
+    "date": "2025-10-27",
+    "title": "The Barn: Part II",
+    "url": "https://tubitv.com/movies/100035616/the-barn-part-ii"
+  },
+  {
+    "date": "2025-10-28",
+    "title": "The Rage: Carrie 2",
+    "url": "https://tubitv.com/movies/458101/the-rage-carrie-2"
+  },
+  {
+    "date": "2025-10-29",
+    "title": "ChromeSkull: Laid to Rest 2",
+    "url": "https://tubitv.com/movies/485992/chromeskull-laid-to-rest-2"
+  },
+  {
+    "date": "2025-10-30",
+    "title": "Ouija Shark 2",
+    "url": "https://tubitv.com/movies/100009896/ouija-shark-2"
+  },
+  {
+    "date": "2025-10-31",
+    "title": "Terrifier 2",
+    "url": "https://tubitv.com/movies/723572/terrifier-2"
+  }
 ]

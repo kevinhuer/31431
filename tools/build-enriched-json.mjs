@@ -62,30 +62,15 @@ async function fetchFromTMDB(title, yearHint) {
   return { overview: hit.overview, poster_path: hit.poster_path };
 }
 
-async function fetchFromOMDb(title, yearHint) {
-  if (!OMDB_KEY) return null;
-  const params = new URLSearchParams({ apikey: OMDB_KEY, t: title, type: "movie", plot: "short" });
-  if (yearHint) params.set("y", String(yearHint));
-  const resp = await fetchImpl(`https://www.omdbapi.com/?${params.toString()}`);
-  if (!resp.ok) return null;
-  const data = await resp.json();
-  if (!data || data.Response === "False") return null;
-  return { overview: data.Plot, poster: data.Poster };
-}
-
 async function enrichOne(m) {
   const hint = YEAR_HINTS[m.title];
   const tmdb = await fetchFromTMDB(m.title, hint);
+  const url = m.url;
   let cover = tmdb && tmdb.poster_path ? tmdbPosterUrl(tmdb.poster_path) : m.cover;
   let synopsis = (tmdb && tmdb.overview) || m.synopsis;
 
-  if (!synopsis) {
-    const omdb = await fetchFromOMDb(m.title, hint);
-    synopsis = (omdb && omdb.overview) || synopsis;
-    cover = cover || (omdb && omdb.poster) || cover;
-  }
 
-  return { ...m, cover, synopsis: synopsis || "Synopsis pending." };
+  return { ...m, cover, url, synopsis: synopsis || "Synopsis pending." };
 }
 
 const results = await Promise.all(movies.map(enrichOne));
