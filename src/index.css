@@ -67,5 +67,14 @@ button:focus-visible {
   }
 }
 
-
 @import "tailwindcss";
+
+.movie-card-image {
+  max-width: 200px;
+}
+
+.movie-card {
+  left: 0 !important;
+  right: 0 !important;
+  margin: auto;
+}

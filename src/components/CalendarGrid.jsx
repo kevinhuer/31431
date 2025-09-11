@@ -1,59 +1,15 @@
-import React, { useMemo, useRef, useState, useEffect } from "react";
+import React from "react";
 import MovieCard from "./MovieCard.jsx";
-import { MOVIES, buildCalendar } from "../data/movies.js";
+import { MOVIES } from "../data/movies.js";
 
-export default function CalendarGrid({ enriched, loading, today }) {
-  const [selectedDate, setSelectedDate] = useState("2025-10-01");
-  const { weeks } = useMemo(() => buildCalendar(2025, 9), []); // 9 = October
-  const selectedMovie = selectedDate
-    ? enriched[selectedDate] ||
-      MOVIES.find((m) => m.date === selectedDate) ||
-      null
-    : null;
-  
-    const headerRef = useRef(null);
-  const detailsRef = useRef(null);
-  
-  useEffect(() => {
-      if (!selectedDate || !detailsRef.current) return;
-  const headerH = headerRef.current?.offsetHeight ?? 0;
-  const y = detailsRef.current.getBoundingClientRect().top + window.scrollY - headerH - 12;
-  window.scrollTo({ top: y, behavior: "smooth" });
-  detailsRef.current.focus();
-  }, [selectedDate]);
-
+export default function CalendarGrid({
+  enriched,
+  weeks,
+  handleSetSelectedDate,
+}) {
   return (
     <>
-      <div className="mt-6">
-        {loading && (
-          <div className="text-zinc-400 text-sm mb-3">
-            Fetching posters and synopses...
-          </div>
-        )}
-        {selectedMovie ? (
-          <div>
-            <h3 className="text-lg font-semibold mb-3">
-              Selected day: {`${selectedDate}`}
-            </h3>
-
-            <section id="today" className="mx-auto max-w-6xl px-4 py-1">
-              {today ? (
-                <h2 className="text-xl sm:text-2xl font-semibold mb-4">
-                  It's the movie of the DAY!!!!
-                </h2>
-              ) : (
-                <h2>Beginning soon!!!</h2>
-              )}
-              {today ? (
-                <MovieCard movie={today} accent />
-              ) : (
-                <MovieCard movie={selectedMovie} accent />
-              )}
-            </section>
-          </div>
-        ) : (
-          <div className="text-zinc-400 text-sm">Pick a date below.</div>
-        )}
+      <div>
         <div className="flex items-end justify-between mb-3">
           <h2 className="text-xl sm:text-2xl font-semibold">
             October 2025 Calendar
@@ -85,7 +41,11 @@ export default function CalendarGrid({ enriched, loading, today }) {
               return (
                 <button
                   key={di}
-                  onClick={() => inMonth && movie && setSelectedDate(iso)}
+                  onClick={() => {
+                    if (inMonth && movie) {
+                      handleSetSelectedDate(iso, movie);
+                    }
+                  }}
                   className={[
                     "rounded-xl border px-2 py-2 text-left h-28 sm:h-32 transition",
                     inMonth
@@ -107,7 +67,7 @@ export default function CalendarGrid({ enriched, loading, today }) {
                       </span>
                     )}
                   </div>
-                  <div className="mt-2 line-clamp-3 text-xs sm:text-sm text-zinc-200">
+                  <div className="mt-2 line-clamp-3 text-xs sm:text-sm text-zinc-200 hidden lg:block">
                     {movie ? movie.title : ""}
                   </div>
                 </button>
