@@ -59,7 +59,7 @@ async function fetchFromTMDB(title, yearHint) {
   const data = await resp.json();
   const hit = data.results && data.results[0];
   if (!hit) return null;
-  return { overview: hit.overview, poster_path: hit.poster_path };
+  return { overview: hit.overview, poster_path: hit.poster_path, release: hit.release_date, vote_average: hit.vote_average, vote_count: hit.vote_count };
 }
 
 async function enrichOne(m) {
@@ -68,9 +68,12 @@ async function enrichOne(m) {
   const url = m.url;
   let cover = tmdb && tmdb.poster_path ? tmdbPosterUrl(tmdb.poster_path) : m.cover;
   let synopsis = (tmdb && tmdb.overview) || m.synopsis;
+  let release = (tmdb && tmdb.release) || '?';
+  let vote_average = (tmdb && tmdb.vote_average) || '?';
+  let vote_count = (tmdb && tmdb.vote_count) || '?';
+  let stars = (vote_average != '?') ? Math.round((vote_average / 2) *2 ) / 2 : '?';
 
-
-  return { ...m, cover, url, synopsis: synopsis || "Synopsis pending." };
+  return { ...m, cover, url, release, vote_average, stars, vote_count, synopsis: synopsis || "Synopsis pending." };
 }
 
 const results = await Promise.all(movies.map(enrichOne));
