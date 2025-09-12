@@ -41,20 +41,16 @@ export default function CalendarGrid({
               return (
                 <button
                   key={di}
+                  type="button"
                   onClick={() => {
                     if (inMonth && movie) {
                       handleSetSelectedDate(iso, movie);
                     }
                   }}
                   className={[
-                    "flex flex-col rounded-xl border px-2 py-2 text-left h-20 sm:h-28 lg:h-32 transition",
-                    inMonth
-                      ? "border-zinc-800 bg-zinc-900 hover:bg-zinc-800"
-                      : "border-transparent bg-zinc-900/30 text-zinc-600",
-                    movie ? "cursor-pointer" : "cursor-default",
-                    isToday ? "ring-2 ring-emerald-500" : "",
+                    "bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200",
+                    !inMonth || !movie ? "pointer-events-none opacity-60" : "",
                   ].join(" ")}
-                  disabled={!inMonth || !movie}
                   title={movie?.title || "No feature"}
                 >
                   <div className="flex items-center justify-between">

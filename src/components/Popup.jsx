@@ -47,14 +47,14 @@ export default function Popup({
               <button
                 ref={closeBtnRef}
                 onClick={handleClose}
-                className="ml-4 rounded-md border border-zinc-700 bg-zinc-800 px-3 py-1.5 text-sm hover:bg-zinc-700"
+                className=" appearance-none ml-4 rounded-md border border-zinc-700 bg-zinc-800 px-3 py-1.5 text-sm hover:bg-zinc-700"
                 aria-label="Close"
               >
                 Close
               </button>
               <button
                 onClick={handleCloseForever}
-                className="ml-4 rounded-md border border-zinc-700 bg-zinc-800 px-3 py-1.5 text-sm hover:bg-zinc-700"
+                className="appearance-none ml-4 rounded-md border border-zinc-700 bg-zinc-800 px-3 py-1.5 text-sm hover:bg-zinc-700"
                 aria-label="Close forever"
               >
                 Don't open again

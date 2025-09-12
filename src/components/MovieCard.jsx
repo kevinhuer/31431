@@ -65,7 +65,7 @@ export default function MovieCard({
       } p-4`}
     >
       <div className="flex w-full justify-end">
-        <button className="" onClick={handleBackToCalendar}>
+        <button className="appearance-none bg-zinc-900" onClick={handleBackToCalendar}>
           Back to calendar
         </button>
       </div>
@@ -111,7 +111,7 @@ export default function MovieCard({
               }
               type="button"
               rel="noreferrer"
-              className="inline-flex items-center rounded-lg px-3 py-1.5 text-sm text-emerald-300 hover:bg-emerald-800/30"
+              className="appearance-none inline-flex items-center rounded-lg px-3 py-1.5 text-sm text-emerald-300 hover:bg-emerald-800/30"
             >
               Watch on Tubi
             </button>
