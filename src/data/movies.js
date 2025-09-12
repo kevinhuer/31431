@@ -208,7 +208,7 @@ export function buildCalendar(year, monthIndexZeroBased) {
   const startDate = new Date(year, monthIndexZeroBased, 1 - startDayIndex);
   const weeks = [];
   let cursor = new Date(startDate);
-  for (let w = 0; w < 6; w++) {
+  for (let w = 0; w < 5; w++) {
     const row = [];
     for (let dIdx = 0; dIdx < 7; dIdx++) {
       row.push(new Date(cursor));
