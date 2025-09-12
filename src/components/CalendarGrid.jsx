@@ -48,13 +48,13 @@ export default function CalendarGrid({
                     }
                   }}
                   className={[
-                    "bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200",
+                    "appearance-none flex flex-col items-start bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200",
                     !inMonth || !movie ? "pointer-events-none opacity-60" : "",
                   ].join(" ")}
                   title={movie?.title || "No feature"}
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-zinc-400">
+                  <div className="">
+                    <span className="text-xs text-left text-zinc-400">
                       {day.getDate()}
                     </span>
                     {isToday && (
@@ -63,7 +63,7 @@ export default function CalendarGrid({
                       </span>
                     )}
                   </div>
-                  <div className="mt-2 line-clamp-3 text-xs sm:text-sm text-zinc-200 hidden lg:block">
+                  <div className="mt-2 text-left line-clamp-3 text-xs sm:text-sm text-zinc-200 hidden lg:block">
                     {movie ? movie.title : ""}
                   </div>
                 </button>

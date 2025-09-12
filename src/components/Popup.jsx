@@ -64,26 +64,26 @@ export default function Popup({
 
           <div className="mx-auto w-full px-4 py-4 flex flex-col items-center justify-center">
             <iframe
-              className="w-full h-full"
-              src={videoURL}
+              className="w-full h-full sm:w-96 sm:h-64"
+                            src={videoURL}
               title="31 for 31 trailer"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             />
-            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-center">
               31 for 31, October 2025
             </h1>
           </div>
-          <section id="video" className="mx-auto max-w-6xl px-4 py-1 sm:py-1">
-            <div className="items-start">
-              <div className="space-y-3">
+          <section id="video" className="mx-auto max-w-6xl px-4 py-1 sm:py-1 w-full h-full sm:w-96 sm:h-64">
+            <div className="text-center">
+              <div className="space-y-3 ">
                 <h2 className="text-xl font-semibold">
                   THE TERRIBLE NUMBER TWOS!!!!
                 </h2>
-                <p className="text-zinc-300 text-sm leading-relaxed">
+                <p className="text-zinc-300 text-sm leading-relaxed ">
                   <strong>
                     31 movies that are the 2nd in their series (mostly) AND are
-                    also absolute shit AND all are available on TU(two)bi for
+                    also absolute sh*t AND all are available on TU(two)bi for
                     free (with ads).
                   </strong>
                 </p>
