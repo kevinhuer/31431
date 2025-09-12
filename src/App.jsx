@@ -5,21 +5,19 @@ import MovieCard from "./components/MovieCard.jsx";
 import CalendarGrid from "./components/CalendarGrid.jsx";
 import Footer from "./components/Footer.jsx";
 import Popup from "./components/Popup.jsx";
+import useLocalStorage from "./hooks/useLocalStorage.js";
 
 const EVENT_VIDEO_URL = "https://www.youtube.com/embed/D9OoGhS5ilE";
 
 export default function App() {
   const INTRO_KEY = "introDismissed_v1";
   const [enriched, setEnriched] = useState({});
-  const [modalOpen, setModalOpen] = useState(
-    localStorage.getItem(INTRO_KEY) ? false : true
-  );
+  const [modalOpen, setModalOpen] = useLocalStorage(INTRO_KEY, false);
 
   const { weeks } = useMemo(() => buildCalendar(2025, 9), []);
 
   const handleCloseForever = () => {
     setModalOpen(false);
-    localStorage.setItem(INTRO_KEY, "1");
   };
 
   const handleClose = () => {
