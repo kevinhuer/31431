@@ -1,11 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { MOVIES } from "../data/movies.js";
 
 export default function CalendarGrid({
   enriched,
   weeks,
-  dispatch,
 }) {
+  const navigate = useNavigate();
   return (
     <>
       <div id="cal-header" className="h-12 md:h-24 lg:h-36">
@@ -43,10 +44,7 @@ export default function CalendarGrid({
                   type="button"
                   onClick={() => {
                     if (inMonth && movie) {
-                      dispatch({
-                        type: "SELECT_MOVIE",
-                        payload: { date: iso, movie },
-                      });
+                      navigate(`/movie/${iso}`);
                     }
                   }}
                   className={[
