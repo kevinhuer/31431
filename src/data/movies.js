@@ -20,7 +20,6 @@ export const YEAR_HINTS = {
   "Puppet Master II": 1990,
   "Sleepaway Camp II": 1988,
   "Texas Chainsaw Massacre Part 2": 1986,
-  "Insidious Chapter 2": 2013,
   "ABCs of Death 2 (anthology)": 2014,
   "Terrifier 2": 2022,
   "The Rage: Carrie 2": 1999,
@@ -107,8 +106,8 @@ export const MOVIES = [
   },
   {
     date: d(2025, 10, 16),
-    title: "Ghoulies II",
-    url: "https://tubitv.com/movies/310133/ghoulies-ii",
+    title: "Apex Predators 2: The Spawning",
+    url: "https://tubitv.com/movies/100031756/apex-predators-2-the-spawning",
   },
   {
     date: d(2025, 10, 17),
@@ -147,9 +146,10 @@ export const MOVIES = [
   },
   {
     date: d(2025, 10, 24),
-    title: "Insidious Chapter 2",
-    url: "https://tubitv.com/movies/100043687/insidious-chapter-2",
+    title: "Ghoulies II",
+    url: "https://tubitv.com/movies/310133/ghoulies-ii",
   },
+
   {
     date: d(2025, 10, 25),
     title: "Texas Chainsaw Massacre Part 2",
