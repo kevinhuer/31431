@@ -69,6 +69,13 @@ button:focus-visible {
 
 @import "tailwindcss";
 
+#cal-header{
+  background-image: url('./assets/header-image.jpg');
+  background-position: top right;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .movie-card-image {
   max-width: 200px;
 }
