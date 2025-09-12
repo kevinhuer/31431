@@ -55,10 +55,14 @@ export default function App() {
     const base = MOVIES.find((m) => m.date === date);
     const movie = enriched[date] || base;
     if (!movie) return null;
-    return (
+    return (<>
+       <section id="calendar" className="mx-auto max-w-6xl px-4 py-6">
+              <CalendarGrid enriched={enriched} weeks={weeks} />
+            </section>
       <section id="movie">
         <MovieCard movie={movie} onBack={handleBackToCalendar} />
       </section>
+      </>
     );
   }
 
