@@ -1,5 +1,6 @@
 import React from "react";
 import { formatLongDate, PLACEHOLDER_COVER } from "../data/movies.js";
+import StarRating from "./StarRating";
 
 export default function MovieCard({
   movie,
@@ -68,38 +69,53 @@ export default function MovieCard({
           Back to calendar
         </button>
       </div>
-
-      <div className="flex flex-col relative overflow-hidden rounded-xl ">
-        <img
-          src={movie.cover || PLACEHOLDER_COVER}
-          alt={`${movie.title} cover`}
-          className="relative movie-card-image"
-        />
-      </div>
-      <div className="flex flex-col m">
-        <div className="flex flex-wrap items-center justify-between ">
-          <h3 className="text-xl font-semibold">{movie.title}</h3>
-          <span className="text-xs text-zinc-400 whitespace-nowrap">
-            Watch date: {formatLongDate(movie.date)}
-          </span>
+      <div className="flex flex-col md:flex-row mt-2">
+        <div className="flex flex-col relative rounded-xl mr-0 md:mr-4">
+          <img
+            src={movie.cover || PLACEHOLDER_COVER}
+            alt={`${movie.title} cover`}
+            className="relative movie-card-image"
+          />
         </div>
-        <p className="mt-2 text-sm text-zinc-300 min-h-[3rem]">
-          {movie.synopsis || "Synopsis pending."}
-        </p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          <button
-            onClick={() =>
-              openOnTubi(
-                movie.url ||
-                  `https://tubitv.com/search/${encodeURIComponent(movie.title)}`
-              )
-            }
-            type="button"
-            rel="noreferrer"
-            className="inline-flex items-center rounded-lg px-3 py-1.5 text-sm text-emerald-300 hover:bg-emerald-800/30"
-          >
-            Watch on Tubi
-          </button>
+        <div className="flex flex-col m">
+          <div className="flex flex-wrap items-start justify-between ">
+            <div className="flex flex-col">
+              <h3 className="text-xl font-semibold">{movie.title}</h3>
+              <StarRating
+                value={movie.stars}
+                size={20}
+                className="text-zinc-400" // sets outline color via currentColor
+                fillColor="#facc15" // yellow fill
+              />
+              <span className="text-sm text-emerald-300">
+                Release date: {formatLongDate(movie.release)}
+              </span>
+            </div>
+
+            <div className="flex flex-col items-start md:items-end">
+              <span>Watch date: {formatLongDate(movie.date)}</span>
+            </div>
+          </div>
+          <p className="mt-2 text-sm text-zinc-300 min-h-[3rem]">
+            {movie.synopsis || "Synopsis pending."}
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <button
+              onClick={() =>
+                openOnTubi(
+                  movie.url ||
+                    `https://tubitv.com/search/${encodeURIComponent(
+                      movie.title
+                    )}`
+                )
+              }
+              type="button"
+              rel="noreferrer"
+              className="inline-flex items-center rounded-lg px-3 py-1.5 text-sm text-emerald-300 hover:bg-emerald-800/30"
+            >
+              Watch on Tubi
+            </button>
+          </div>
         </div>
       </div>
     </article>
