@@ -1,6 +1,7 @@
 import React from "react";
 import { formatLongDate, PLACEHOLDER_COVER } from "../data/movies.js";
 import StarRating from "./StarRating";
+import { FacebookShareButton } from "./ShareButtons.jsx";
 
 export default function MovieCard({
   movie,
@@ -115,6 +116,7 @@ export default function MovieCard({
             >
               Watch on Tubi
             </button>
+            <FacebookShareButton dateISO={movie.date} title={movie.title} />
           </div>
         </div>
       </div>
