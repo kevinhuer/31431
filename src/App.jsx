@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { MOVIES, buildCalendar, getTodayMovie } from "./data/movies.js";
+import React, { useEffect, useState, useMemo, useReducer } from "react";
+import { buildCalendar } from "./data/movies.js";
 import MovieCard from "./components/MovieCard.jsx";
 import CalendarGrid from "./components/CalendarGrid.jsx";
 import Footer from "./components/Footer.jsx";
 import Popup from "./components/Popup.jsx";
+import { calendarReducer, initialState } from "./state/calendarReducer.js";
 
 const EVENT_VIDEO_URL = "https://www.youtube.com/embed/D9OoGhS5ilE"; 
 
@@ -11,39 +12,19 @@ export default function App() {
 
   const INTRO_KEY = "introDismissed_v1";
   const [enriched, setEnriched] = useState({}); // { [date]: movie }
-  const [loading, setLoading] = useState(true);
   const [modalOpen, setModalOpen] = useState(localStorage.getItem(INTRO_KEY) ? false : true);
-  const [selectedDate, setSelectedDate] = useState();
-  const [isMovieView, setMovieView] = useState(false);
-  const [movie, setMovie] = useState(null);
+  const [state, dispatch] = useReducer(calendarReducer, initialState);
 
   const { weeks } = useMemo(() => buildCalendar(2025, 9), []); // 9 = October
-
-  const todayBase = getTodayMovie();
-  const today = todayBase ? enriched[todayBase.date] || todayBase : null;
-
 
   const handleCloseForever = () =>{
      setModalOpen(false);
      localStorage.setItem(INTRO_KEY, "1");
   }
 
-  const selectedMovie = selectedDate
-    ? enriched[selectedDate] ||
-      MOVIES.find((m) => m.date === selectedDate) ||
-      null
-    : null;
-
-
-  const handleBackToCalendar = () => {
-    setMovieView(false);
-  };
-
-  const handleSetSelectDate = (iso, movie) => {
-    setSelectedDate(iso);
-    setMovie(movie);
-    setMovieView(true);
-  };
+  const { view, movie } = state;
+  const isMovieView = view === "movie";
+  const selectedMovie = movie;
 
   const handleClose = () => {
     setModalOpen(false);
@@ -60,8 +41,6 @@ export default function App() {
       } catch (e) {
         console.error("Falling back to raw schedule only:", e);
         if (alive) setEnriched({});
-      } finally {
-        if (alive) setLoading(false);
       }
     }
     run();
@@ -81,11 +60,8 @@ export default function App() {
         <section id="calendar" className="mx-auto max-w-6xl px-4 py-6">
           <CalendarGrid
             enriched={enriched}
-            loading={loading}
-            today={today}
-            selectedDate={selectedDate}
             weeks={weeks}
-            handleSetSelectedDate={handleSetSelectDate}
+            dispatch={dispatch}
           />
         </section>
      
@@ -94,7 +70,7 @@ export default function App() {
         <section id="movie">
           <MovieCard
             movie={movie}
-            handleBackToCalendar={handleBackToCalendar}
+            dispatch={dispatch}
           />
         </section>
       )}

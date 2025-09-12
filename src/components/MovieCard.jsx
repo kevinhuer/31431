@@ -6,7 +6,7 @@ import { FacebookShareButton } from "./ShareButtons.jsx";
 export default function MovieCard({
   movie,
   accent = false,
-  handleBackToCalendar,
+  dispatch,
 }) {
   function isiOS() {
     return /iP(hone|ad|od)/i.test(navigator.userAgent);
@@ -66,7 +66,10 @@ export default function MovieCard({
       } p-4`}
     >
       <div className="flex w-full justify-end">
-        <button className="appearance-none bg-zinc-900" onClick={handleBackToCalendar}>
+        <button
+          className="appearance-none bg-zinc-900"
+          onClick={() => dispatch({ type: "BACK_TO_CALENDAR" })}
+        >
           Back to calendar
         </button>
       </div>
