@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "prebuild:data": "node tools/build-enriched-json.mjs",
+    "prebuild:data": "node tools/build-enriched-json.mjs && node tools/build-share-pages.mjs",
+    "build": "npm run prebuild:data && vite build",
     "dev": "vite",
-    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
