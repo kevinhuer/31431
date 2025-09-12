@@ -28,7 +28,7 @@ export default function CalendarGrid({
         ))}
       </div>
 
-      <div className="grid grid-cols-7 gap-2">
+      <div className="grid grid-cols-7 gap-1 sm:gap-2">
         {weeks.map((week, wi) => (
           <React.Fragment key={wi}>
             {week.map((day, di) => {
@@ -47,7 +47,7 @@ export default function CalendarGrid({
                     }
                   }}
                   className={[
-                    "flex flex-col rounded-xl border px-2 py-2 text-left h-28 sm:h-32 transition",
+                    "flex flex-col rounded-xl border px-2 py-2 text-left h-20 sm:h-28 lg:h-32 transition",
                     inMonth
                       ? "border-zinc-800 bg-zinc-900 hover:bg-zinc-800"
                       : "border-transparent bg-zinc-900/30 text-zinc-600",
