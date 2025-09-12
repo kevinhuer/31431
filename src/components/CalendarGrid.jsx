@@ -1,11 +1,10 @@
 import React from "react";
-import MovieCard from "./MovieCard.jsx";
 import { MOVIES } from "../data/movies.js";
 
 export default function CalendarGrid({
   enriched,
   weeks,
-  handleSetSelectedDate,
+  dispatch,
 }) {
   return (
     <>
@@ -44,7 +43,10 @@ export default function CalendarGrid({
                   type="button"
                   onClick={() => {
                     if (inMonth && movie) {
-                      handleSetSelectedDate(iso, movie);
+                      dispatch({
+                        type: "SELECT_MOVIE",
+                        payload: { date: iso, movie },
+                      });
                     }
                   }}
                   className={[
