@@ -63,7 +63,7 @@ for (const m of movies) {
 
   const html = shareHtml({
     url: urlPath,
-    title: `${item.title} — I watched this as part of 31 for 31`,
+    title: `${item.title} — Watching this as part of 31 for 31`,
     description: item.synopsis,
     image,
     dateISO
