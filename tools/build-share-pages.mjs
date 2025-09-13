@@ -20,7 +20,7 @@ function shareHtml({ url, title, description, image, dateISO }) {
   const imgUrl  = image.startsWith("http") ? image : new URL(image, SITE_BASE).toString();
   const desc    = description || `I watched ${title} on ${dateISO}.`;
 
-return `<!doctype html>
+  return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -44,7 +44,7 @@ return `<!doctype html>
   <meta name="twitter:image" content="${imgUrl}"/>
 
   <!-- Redirect humans to the app -->
-  <meta http-equiv="refresh" content="0; url=/movie/${dateISO}"/>
+  <meta http-equiv="refresh" content="0; url=/movie/${dateISO}?from=share"/>
 </head>
 <body>
   <p>Redirecting… If not redirected, <a href="/movie/${dateISO}">open the app</a>.</p>
@@ -59,10 +59,10 @@ for (const m of movies) {
   const dateISO = m.date; // already "YYYY-MM-DD" in your JSON
   const item = enriched[dateISO] || m;
   const image = item.cover || "/posters/fallback.jpg";  // use your prebuilt local poster or a custom banner
-  const pageUrl = `/movie/${dateISO}`;
+  const urlPath = `/share/${dateISO}.html`;
 
   const html = shareHtml({
-    url: pageUrl,
+    url: urlPath,
     title: `${item.title} — Watching this as part of 31 for 31`,
     description: item.synopsis,
     image,

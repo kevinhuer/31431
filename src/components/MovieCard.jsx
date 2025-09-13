@@ -59,7 +59,7 @@ export default function MovieCard({
       role="dialog"
       aria-modal="true"
       aria-label="About this movie"
-      className={`fixed inset-0 z-50 w-[min(92vw,1000px)] rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl movie-card ${
+      className={`fixed overflow-y-scroll inset-0 z-50 w-[min(92vw,1000px)] rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl movie-card ${
         accent
           ? "border-emerald-700/40 bg-emerald-900/10"
           : "border-zinc-800 bg-zinc-900"
@@ -119,7 +119,7 @@ export default function MovieCard({
             >
               Watch on Tubi
             </button>
-            <FacebookShareButton dateISO={movie.date} title={movie.title} />
+              <FacebookShareButton dateISO={movie.date} title={movie.title} /> 
           </div>
         </div>
       </div>
