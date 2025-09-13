@@ -14,7 +14,7 @@ export function FacebookShareButton({ dateISO, title }) {
     <button
       type="button"
       onClick={() => window.open(fbShareUrl({ shareUrl, quote }), "_blank", "noopener,noreferrer")}
-      className="inline-flex items-center rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-1.5 text-sm hover:bg-zinc-700"
+      className="inline-flex items-center rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-1.5 text-sm text-zinc-100 hover:bg-zinc-700"
       title="Share on Facebook"
     >
       Share on Facebook

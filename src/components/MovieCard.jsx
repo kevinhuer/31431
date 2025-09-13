@@ -67,7 +67,7 @@ export default function MovieCard({
     >
       <div className="flex w-full justify-end">
         <button
-          className="appearance-none bg-zinc-900"
+          className="appearance-none rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-1.5 text-sm text-zinc-100 hover:bg-zinc-800"
           onClick={onBack}
         >
           Back to calendar
@@ -115,7 +115,7 @@ export default function MovieCard({
               }
               type="button"
               rel="noreferrer"
-              className="appearance-none inline-flex items-center rounded-lg px-3 py-1.5 text-sm text-emerald-300 hover:bg-emerald-800/30"
+              className="appearance-none inline-flex items-center rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-1.5 text-sm text-emerald-300 hover:bg-emerald-800/30"
             >
               Watch on Tubi
             </button>
