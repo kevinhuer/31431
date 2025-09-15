@@ -62,7 +62,7 @@ export default function Popup({
             </div>
           </div>
           <div className="mx-auto w-full px-4 py-4 flex flex-col items-center justify-center">
-            <video width="320" height="240" className="w-full h-full sm:w-96 sm:h-64" controls poster="src/assets/movie-poster.jpg">
+            <video width="320" height="240" className="w-full h-full sm:w-96 sm:h-64" controls poster="https://res.cloudinary.com/kjhuer/image/upload/v1757959719/movie-poster_klpjrg.jpg">
               <source src="https://res.cloudinary.com/kjhuer/video/upload/v1757942642/Final_dlwym7.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
