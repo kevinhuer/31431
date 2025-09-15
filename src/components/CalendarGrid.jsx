@@ -48,7 +48,7 @@ export default function CalendarGrid({
                     }
                   }}
                   className={[
-                    "appearance-none flex flex-col items-start bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200",
+                    "appearance-none flex flex-col items-start bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 h-14 md:h-28 p-1",
                     !inMonth || !movie ? "pointer-events-none opacity-60" : "",
                   ].join(" ")}
                   title={movie?.title || "No feature"}
