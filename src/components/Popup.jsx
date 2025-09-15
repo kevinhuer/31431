@@ -61,15 +61,11 @@ export default function Popup({
               </button>
             </div>
           </div>
-
           <div className="mx-auto w-full px-4 py-4 flex flex-col items-center justify-center">
-            <iframe
-              className="w-full h-full sm:w-96 sm:h-64"
-                            src={videoURL}
-              title="31 for 31 trailer"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
+            <video width="320" height="240" className="w-full h-full sm:w-96 sm:h-64" controls poster="src/assets/movie-poster.jpg">
+              <source src="https://res.cloudinary.com/kjhuer/video/upload/v1757942642/Final_dlwym7.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-center">
               31 for 31, October 2025
             </h1>
