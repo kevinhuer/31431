@@ -41,7 +41,7 @@ export default function Popup({
       />
       {/* panel */}
       <div className="absolute inset-0 flex items-center justify-center p-4">
-        <div className="w-[min(92vw,1000px)] rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl">
+        <div className="w-[min(92vw,800px)] rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl">
           <div className="flex items-start justify-between w-full p-4 sm:p-6">
             <div className="flex w-full flex-row justify-between">
               <button
@@ -63,14 +63,14 @@ export default function Popup({
           </div>
           <div className="mx-auto w-full px-4 py-4 flex flex-col items-center justify-center">
             <video width="320" height="240" className="w-full h-full sm:w-96 sm:h-64" controls poster="https://res.cloudinary.com/kjhuer/image/upload/v1757959719/movie-poster_klpjrg.jpg">
-              <source src="https://res.cloudinary.com/kjhuer/video/upload/v1757942642/Final_dlwym7.mp4" type="video/mp4" />
+              <source src={videoURL} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-center">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-center text-red-700">
               31 for 31, October 2025
             </h1>
           </div>
-          <section id="video" className="mx-auto max-w-6xl px-4 py-1 sm:py-1 w-full h-full sm:w-96 sm:h-64">
+          <section id="video" className="mx-auto max-w-6xl px-4 py-1 sm:py-1 w-full sm:w-96">
             <div className="text-center">
               <div className="space-y-3 ">
                 <h2 className="text-xl font-semibold">

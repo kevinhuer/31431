@@ -11,7 +11,7 @@ export default function CalendarGrid({
     <>
       <div id="cal-header" className="h-12 md:h-24 lg:h-36">
         <div className="flex flex-col justify-between mb-3">
-          <h2 className="text-xl sm:text-2xl font-semibold">
+          <h2 className="text-xl sm:text-2xl font-semibold text-red-700">
             October 2025 Calendar
           </h2>
           <div className="text-zinc-400 text-xs">
