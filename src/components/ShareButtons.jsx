@@ -32,18 +32,49 @@ export function FacebookShareButton({ dateISO, title }) {
 
         if (isMobile) {
           let fallbackTimeout;
-          const handleVisibilityChange = () => {
-            if (document.hidden && fallbackTimeout) {
+          let didLoseVisibility = false;
+
+          function cleanup() {
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
+            window.removeEventListener("pagehide", handlePageHide);
+            window.removeEventListener("blur", handleBlur);
+          }
+
+          function recordVisibilityLoss() {
+            didLoseVisibility = true;
+            if (fallbackTimeout) {
               clearTimeout(fallbackTimeout);
-              document.removeEventListener("visibilitychange", handleVisibilityChange);
+              fallbackTimeout = undefined;
             }
-          };
+            cleanup();
+          }
+
+          function handleVisibilityChange() {
+            if (document.visibilityState === "hidden") {
+              recordVisibilityLoss();
+            }
+          }
+
+          function handlePageHide() {
+            recordVisibilityLoss();
+          }
+
+          function handleBlur() {
+            if (document.visibilityState === "hidden") {
+              recordVisibilityLoss();
+            }
+          }
 
           document.addEventListener("visibilitychange", handleVisibilityChange);
+          window.addEventListener("pagehide", handlePageHide);
+          window.addEventListener("blur", handleBlur);
 
           fallbackTimeout = window.setTimeout(() => {
-            document.removeEventListener("visibilitychange", handleVisibilityChange);
-            window.location.href = webShareUrl;
+            fallbackTimeout = undefined;
+            cleanup();
+            if (!didLoseVisibility && document.visibilityState === "visible") {
+              window.location.href = webShareUrl;
+            }
           }, 500);
 
           window.location.href = deepLinkUrl;
