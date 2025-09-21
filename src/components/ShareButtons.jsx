@@ -1,15 +1,19 @@
 import React from "react";
 
-function fbShareUrl({ shareUrl, quote }) {
-  const u = new URL("https://www.facebook.com/sharer/sharer.php");
+const DESKTOP_SHARE_ENDPOINT = "https://www.facebook.com/sharer/sharer.php";
+const MOBILE_SHARE_ENDPOINT = "https://m.facebook.com/sharer.php";
+
+function buildFbShareUrl({ shareUrl, quote }, baseUrl) {
+  const u = new URL(baseUrl);
   u.searchParams.set("u", shareUrl);
   if (quote) u.searchParams.set("quote", quote);
   return u.toString();
 }
 
 function facebookShareTargets(params) {
-  const webShareUrl = fbShareUrl(params);
-  const deepLinkUrl = `fb://facewebmodal/f?href=${encodeURIComponent(webShareUrl)}`;
+  const webShareUrl = buildFbShareUrl(params, DESKTOP_SHARE_ENDPOINT);
+  const mobileShareUrl = buildFbShareUrl(params, MOBILE_SHARE_ENDPOINT);
+  const deepLinkUrl = `fb://facewebmodal/f?href=${encodeURIComponent(mobileShareUrl)}`;
   return { webShareUrl, deepLinkUrl };
 }
 
