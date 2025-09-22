@@ -11,10 +11,15 @@ function buildFbShareUrl({ shareUrl, quote }, baseUrl) {
 }
 
 function facebookShareTargets(params) {
-  const webShareUrl = buildFbShareUrl(params, DESKTOP_SHARE_ENDPOINT);
-  const mobileShareUrl = buildFbShareUrl(params, MOBILE_SHARE_ENDPOINT);
-  const deepLinkUrl = `fb://facewebmodal/f?href=${encodeURIComponent(mobileShareUrl)}`;
-  return { webShareUrl, deepLinkUrl };
+  const shareUrls = {
+    web: buildFbShareUrl(params, DESKTOP_SHARE_ENDPOINT),
+    mobile: buildFbShareUrl(params, MOBILE_SHARE_ENDPOINT),
+  };
+
+  return {
+    webShareUrl: shareUrls.web,
+    deepLinkUrl: `fb://facewebmodal/f?href=${encodeURIComponent(shareUrls.mobile)}`,
+  };
 }
 
 export function FacebookShareButton({ dateISO, title }) {
