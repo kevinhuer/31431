@@ -1,7 +1,6 @@
 import React from "react";
 
 const DESKTOP_SHARE_ENDPOINT = "https://www.facebook.com/sharer/sharer.php";
-const MOBILE_SHARE_ENDPOINT = "https://m.facebook.com/sharer.php";
 
 function isMobileDevice() {
   if (typeof navigator === "undefined") {
@@ -35,14 +34,11 @@ function buildFbShareUrl({ shareUrl, quote }, baseUrl) {
 }
 
 function facebookShareTargets(params) {
-  const shareUrls = {
-    web: buildFbShareUrl(params, DESKTOP_SHARE_ENDPOINT),
-    mobile: buildFbShareUrl(params, MOBILE_SHARE_ENDPOINT),
-  };
+  const webShareUrl = buildFbShareUrl(params, DESKTOP_SHARE_ENDPOINT);
 
   return {
-    webShareUrl: shareUrls.web,
-    deepLinkUrl: `fb://facewebmodal/f?href=${encodeURIComponent(shareUrls.mobile)}`,
+    webShareUrl,
+    deepLinkUrl: `fb://facewebmodal/f?href=${encodeURIComponent(webShareUrl)}`,
   };
 }
 
