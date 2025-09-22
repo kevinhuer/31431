@@ -3,6 +3,30 @@ import React from "react";
 const DESKTOP_SHARE_ENDPOINT = "https://www.facebook.com/sharer/sharer.php";
 const MOBILE_SHARE_ENDPOINT = "https://m.facebook.com/sharer.php";
 
+function isMobileDevice() {
+  if (typeof navigator === "undefined") {
+    return false;
+  }
+
+  const ua = navigator.userAgent;
+
+  if (navigator.userAgentData && "mobile" in navigator.userAgentData) {
+    if (navigator.userAgentData.mobile) {
+      return true;
+    }
+  }
+
+  if (/iPhone|iPad|iPod|Android/i.test(ua)) {
+    return true;
+  }
+
+  if (navigator.maxTouchPoints > 1 && /Macintosh/i.test(ua)) {
+    return true;
+  }
+
+  return false;
+}
+
 function buildFbShareUrl({ shareUrl, quote }, baseUrl) {
   const u = new URL(baseUrl);
   u.searchParams.set("u", shareUrl);
@@ -28,7 +52,7 @@ export function FacebookShareButton({ dateISO, title }) {
     <button
       type="button"
       onClick={() => {
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const isMobile = isMobileDevice();
 
         if (isMobile) {
           let fallbackTimeout;
