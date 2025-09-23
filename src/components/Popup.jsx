@@ -62,10 +62,7 @@ export default function Popup({
             </div>
           </div>
           <div className="mx-auto w-full px-4 py-4 flex flex-col items-center justify-center">
-            <video width="320" height="240" className="w-full h-full sm:w-96 sm:h-64" controls poster="https://res.cloudinary.com/kjhuer/image/upload/v1757959719/movie-poster_klpjrg.jpg">
-              <source src={videoURL} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/sCh-m4aZDq0?si=uZuahjoLlvt_lrEr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-center text-red-700">
               31 for 31, October 2025
             </h1>

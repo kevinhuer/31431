@@ -6,7 +6,7 @@ import CalendarGrid from "./components/CalendarGrid.jsx";
 import Footer from "./components/Footer.jsx";
 import Popup from "./components/Popup.jsx";
 
-const EVENT_VIDEO_URL = "https://res.cloudinary.com/kjhuer/video/upload/v1757942642/Final_dlwym7.mp4";
+const EVENT_VIDEO_URL = "https://www.youtube.com/watch?v=sCh-m4aZDq0";
 
 export default function App() {
   const INTRO_KEY = "introDismissed_v1";
